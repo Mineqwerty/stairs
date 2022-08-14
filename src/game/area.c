@@ -26,6 +26,7 @@
 #include "debug_box.h"
 #include "engine/colors.h"
 #include "profiling.h"
+#include "text_strings.h"
 
 struct SpawnInfo gPlayerSpawnInfos[1];
 struct GraphNode *gGraphNodePointers[MODEL_ID_COUNT];
@@ -375,6 +376,22 @@ void play_transition_after_delay(s16 transType, s16 time, u8 red, u8 green, u8 b
     play_transition(transType, time, red, green, blue);
 }
 
+#include "src/game/custom_ui.h"
+
+u8 text_dearmario[] = { TEXT_DEAR_MARIO };
+u8 text_pleasecome[] = { TEXT_PLEASE_COME };
+u8 text_somethingamiss[] = { TEXT_SOMETHING_AMISS };
+u8 text_neverwouldhave[] = { TEXT_NEVER_WOULD_HAVE };
+u8 text_bowserdefeat[] = { TEXT_BOWSER_DEFEAT };
+u8 text_staircase[] = { TEXT_STAIRCASE };
+u8 text_topfloor[] = { TEXT_TOP_FLOOR };
+u8 text_infinite[] = { TEXT_INFINITE };
+u8 text_know[] = { TEXT_KNOW };
+u8 text_something[] = { TEXT_SOMETHING };
+
+u8 gLetterHeight = 240;
+s16 gTextOpacity = 0;
+
 void render_game(void) {
     if (gCurrentArea != NULL && !gWarpTransition.pauseRendering) {
         if (gCurrentArea->graphNode) {
@@ -385,11 +402,74 @@ void render_game(void) {
 
         gDPSetScissor(gDisplayListHead++, G_SC_NON_INTERLACE, 0, gBorderHeight, SCREEN_WIDTH,
                       SCREEN_HEIGHT - gBorderHeight);
+                      
+        if (gMarioState->customCutscene == 0) {
         render_hud();
+        }
 
         gDPSetScissor(gDisplayListHead++, G_SC_NON_INTERLACE, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
         render_text_labels();
         do_cutscene_handler();
+
+
+        if (gMarioState->customCutscene >= 2) {
+
+        extern const Texture custom_peach_letter[];
+        gSPDisplayList(gDisplayListHead++, dl_hud_img_begin);
+        render_multi_image(&custom_peach_letter, 80, gLetterHeight, 160, 70, 1, 1, G_CYC_COPY);
+        gSPDisplayList(gDisplayListHead++, dl_hud_img_end);
+
+        //even opacity means that it's increasing
+        if (gTextOpacity > 0 && gTextOpacity < 255 && gTextOpacity % 2 == 0) {
+            gTextOpacity += 6;
+            if (gTextOpacity > 255) {
+                gTextOpacity = 255;
+            }
+        }
+
+        //odd means it's decreasing
+        if (gTextOpacity > 0 && gTextOpacity < 255 && gTextOpacity % 2 == 1) {
+            gTextOpacity -= 6;
+            if (gTextOpacity < 0) {
+                gTextOpacity = 0;
+            }
+        }
+
+        create_dl_ortho_matrix();
+
+        gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
+        gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, gTextOpacity);
+
+        switch (gMarioState->customCutscene) {
+            case 2: print_generic_string(100, 35, text_dearmario);
+                break;
+            case 3: print_generic_string(100, 35, text_pleasecome);
+                break;
+            case 4: 
+            case 5: print_generic_string(100, 35, text_somethingamiss);
+                break;
+            case 6: print_generic_string(95, 45, text_neverwouldhave);
+            print_generic_string(95, 25, text_bowserdefeat);
+            break;
+            case 7: print_generic_string(95, 45, text_staircase);
+            print_generic_string(85, 25, text_topfloor);
+            break;
+            case 8: print_generic_string(95, 45, text_infinite);
+            print_generic_string(95, 25, text_know);
+            break;
+            case 9: print_generic_string(85, 35, text_something);
+                break;
+        }
+
+        gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
+        
+
+       //print_small_text(200, 200, "Dear Mario...", PRINT_TEXT_ALIGN_CENTRE, PRINT_ALL, FONT_OUTLINE);
+        }
+
+
+
+
         print_displaying_credits_entry();
         gDPSetScissor(gDisplayListHead++, G_SC_NON_INTERLACE, 0, gBorderHeight, SCREEN_WIDTH,
                       SCREEN_HEIGHT - gBorderHeight);

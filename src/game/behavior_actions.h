@@ -550,6 +550,11 @@ void bhv_dust_smoke_loop(void);
 void bhv_yoshi_loop(void);
 void bhv_volcano_trap_loop(void);
 
+void bhv_cutscene_mario_beginning_init(void);
+void bhv_cutscene_mario_beginning_loop(void);
+void bhv_cutscene_castle_init(void);
+void bhv_cutscene_castle_loop(void);
+
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
 
 // Bowser

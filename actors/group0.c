@@ -30,3 +30,7 @@
 #include "src/s2d_engine/config.h"
 #include FONT_C_FILE
 #endif
+
+#include "cutscene_mario/model.inc.c"
+#include "cutscene_mario/anims/data.inc.c"
+#include "cutscene_mario/anims/table.inc.c"

@@ -41,4 +41,8 @@ extern const Gfx castle_grounds_dl_waterfall[];
 // script
 extern const LevelScript level_castle_grounds_entry[];
 
+extern f32 scene1[][2][3];
+extern f32 scene2[][2][3];
+
 #endif
+

@@ -62,6 +62,12 @@ void bhv_door_loop(void) {
         index++;
     }
 
+    if (gCurrLevelNum == LEVEL_CASTLE) {
+        if (o->oDistanceToMario < 400.0f && o->oTimer > 30) {
+            o->oAction = DOOR_ACT_PUSHED;
+        }
+    }
+
     switch (o->oAction) {
         case DOOR_ACT_CLOSED:
             cur_obj_init_animation_with_sound(DOOR_ANIM_CLOSED);

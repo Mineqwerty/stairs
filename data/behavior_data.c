@@ -6087,4 +6087,24 @@ const BehaviorScript bhvIntroScene[] = {
     END_LOOP(),
 };
 
+const BehaviorScript bhvCutsceneMarioBeginning[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_ANGLE_TO_MOVE_ANGLE | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    LOAD_ANIMATIONS(oAnimations, cutscene_mario_anims),
+    ANIMATE(0),
+    CALL_NATIVE(bhv_cutscene_mario_beginning_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_cutscene_mario_beginning_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvCutsceneCastle[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_ANGLE_TO_MOVE_ANGLE | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    CALL_NATIVE(bhv_cutscene_castle_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_cutscene_castle_loop),
+    END_LOOP(),
+};
+
 

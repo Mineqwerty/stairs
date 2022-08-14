@@ -37,6 +37,8 @@ static const LevelScript script_func_local_1[] = {
     WARP_NODE(/*id*/ 0x14, /*destLevel*/ LEVEL_CASTLE_GROUNDS, /*destArea*/ 0x01, /*destNode*/ 0x14, /*flags*/ WARP_NO_CHECKPOINT),
     OBJECT(/*model*/ MODEL_NONE, /*pos*/  4997, -1250,  2258, /*angle*/ 0, 210, 0, /*behParam*/ 0x001E0000, /*beh*/ bhvSwimmingWarp),
     WARP_NODE(/*id*/ 0x1E, /*destLevel*/ LEVEL_CASTLE_GROUNDS, /*destArea*/ 0x01, /*destNode*/ 0x1E, /*flags*/ WARP_NO_CHECKPOINT),
+
+    OBJECT(/*model*/ MODEL_CUTSCENE_MARIO, /*pos*/  46, 805,  648, /*angle*/ 0, 180, 0, /*behParam*/ 0x00000000, /*beh*/ bhvCutsceneMarioBeginning),
     RETURN(),
 };
 

@@ -10,6 +10,15 @@ void star_door_update_pos(void) {
 void bhv_star_door_loop(void) {
     struct Object *doorObj = cur_obj_nearest_object_with_behavior(bhvStarDoor);
 
+    if (gCurrLevelNum == LEVEL_CASTLE) {
+        if (o->oDistanceToMario < 400.0f && o->oAction != STAR_DOOR_ACT_OPEN) {
+            o->oAction = STAR_DOOR_ACT_OPENING;
+            if (doorObj != NULL) {
+                doorObj->oAction = STAR_DOOR_ACT_OPENING;
+            }
+        }
+    }
+
     switch (o->oAction) {
         case STAR_DOOR_ACT_CLOSED:
             cur_obj_become_tangible();

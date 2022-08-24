@@ -41,3 +41,4 @@
 #include "levels/jrb/areas/2/movtext.inc.c"
 
 #include "levels/jrb/shark/model.inc.c"
+#include "levels/jrb/leveldata.inc.c"

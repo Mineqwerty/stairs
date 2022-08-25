@@ -65,4 +65,7 @@ extern const LevelScript level_jrb_entry[];
 
 #include "levels/jrb/shark/geo_header.h"
 
+
+#include "levels/jrb/header.inc.h"
+
 #endif

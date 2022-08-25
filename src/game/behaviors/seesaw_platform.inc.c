@@ -34,33 +34,4 @@ void bhv_seesaw_platform_init(void) {
  * Update function for bhvSeesawPlatform.
  */
 void bhv_seesaw_platform_update(void) {
-    o->oFaceAnglePitch += (s32) o->oSeesawPlatformPitchVel;
-
-    if (absf(o->oSeesawPlatformPitchVel) > 10.0f) {
-        cur_obj_play_sound_1(SOUND_ENV_BOAT_ROCKING1);
-    }
-
-    if (gMarioObject->platform == o) {
-        // Rotate toward mario
-        f32 rotation = o->oDistanceToMario * coss(o->oAngleToMario - o->oMoveAngleYaw);
-
-        // Deceleration is faster than acceleration
-        if (o->oSeesawPlatformPitchVel * rotation < 0) {
-            rotation *= 0.04f;
-        } else {
-            rotation *= 0.02f;
-        }
-
-        o->oSeesawPlatformPitchVel += rotation;
-        clamp_f32(&o->oSeesawPlatformPitchVel, -50.0f, 50.0f);
-    } else {
-        // Rotate back to 0
-        oscillate_toward(
-            /* value          */ &o->oFaceAnglePitch,
-            /* vel            */ &o->oSeesawPlatformPitchVel,
-            /* target         */ 0.0f,
-            /* velCloseToZero */ 6.0f,
-            /* accel          */ 3.0f,
-            /* slowdown       */ 3.0f);
-    }
 }

@@ -1,0 +1,2 @@
+extern void scroll_bob_dl_Shape_IndexedFaceSet_020_Shape_IndexedFaceSet_011_mesh_layer_4_vtx_1();
+extern void scroll_bob();

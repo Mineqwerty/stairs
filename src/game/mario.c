@@ -1701,6 +1701,7 @@ s32 execute_mario_action(UNUSED struct Object *obj) {
     s32 inLoop = TRUE;
 
     if (gPlayer1Controller->buttonPressed & START_BUTTON && (gCurrLevelNum == LEVEL_CASTLE || gCurrLevelNum == LEVEL_CASTLE_GROUNDS)) {
+        gMarioState->customCutscene = 0;
         initiate_warp(LEVEL_BOB, 1, 0x0A, 0);
     }
 

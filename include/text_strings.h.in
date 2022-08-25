@@ -99,9 +99,9 @@
 #define TEXT_BOWSER_DEFEAT _("this after Bowser's defeat...")
 #define TEXT_STAIRCASE _("But the staircase at the")
 #define TEXT_TOP_FLOOR _("top floor has been cursed again.")
-#define TEXT_INFINITE _("It seems to be infinite,")
-#define TEXT_KNOW _("but I think... No I know.")
-#define TEXT_SOMETHING _("This time, something's up there.")
+#define TEXT_INFINITE _("The toads that went up returned")
+#define TEXT_KNOW _("drowsy and forgetful...")
+#define TEXT_SOMETHING _("Can you go investigate?")
 
 #if defined(VERSION_JP) || defined(VERSION_SH)
 

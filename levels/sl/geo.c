@@ -18,3 +18,6 @@
 #include "levels/sl/snow_mound/geo.inc.c"
 #include "levels/sl/areas/1/geo.inc.c"
 #include "levels/sl/areas/2/geo.inc.c"
+
+#include "levels/sl/breaking_ice/geo.inc.c"
+#include "levels/sl/geo.inc.c"

@@ -555,6 +555,12 @@ void bhv_cutscene_mario_beginning_loop(void);
 void bhv_cutscene_castle_init(void);
 void bhv_cutscene_castle_loop(void);
 
+void bhv_shark_init(void);
+void bhv_shark_loop(void);
+void bhv_shark_spawner_loop(void);
+
+void bhv_breakable_ice_loop(void);
+
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
 
 // Bowser

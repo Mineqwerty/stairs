@@ -544,4 +544,9 @@ extern const BehaviorScript bhvUnusedFakeStar[];
 extern const BehaviorScript bhvCutsceneMarioBeginning[];
 extern const BehaviorScript bhvCutsceneCastle[];
 
+extern const BehaviorScript bhvSharkSpawner[];
+extern const BehaviorScript bhvShark[];
+
+extern const BehaviorScript bhvBreakableIce[];
+
 #endif // BEHAVIOR_DATA_H

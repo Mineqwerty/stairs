@@ -1,0 +1,10 @@
+extern const GeoLayout breaking_ice_geo[];
+extern Lights1 breaking_ice_Ice_lights;
+extern u8 breaking_ice_zoo_ice_surface_ci4[];
+extern u8 breaking_ice_zoo_ice_surface_ci4_pal_rgba16[];
+extern Vtx breaking_ice_Plane_006_mesh_layer_1_vtx_0[4];
+extern Gfx breaking_ice_Plane_006_mesh_layer_1_tri_0[];
+extern Gfx mat_breaking_ice_Ice[];
+extern Gfx mat_revert_breaking_ice_Ice[];
+extern Gfx breaking_ice_Plane_006_mesh_layer_1[];
+extern Gfx breaking_ice_material_revert_render_settings[];

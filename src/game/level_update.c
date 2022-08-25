@@ -1,4 +1,5 @@
 #include "texscroll.h"
+#include "texscroll.h"
 #include <ultra64.h>
 
 #include "sm64.h"
@@ -1141,7 +1142,7 @@ s32 update_level(void) {
 
     switch (sCurrPlayMode) {
         case PLAY_MODE_NORMAL:
-            changeLevel = play_mode_normal(); scroll_textures();
+            changeLevel = play_mode_normal(); scroll_textures(); scroll_textures();
             break;
         case PLAY_MODE_PAUSED:
             changeLevel = play_mode_paused();

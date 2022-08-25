@@ -4,6 +4,7 @@
 #include "model_ids.h"
 #include "seq_ids.h"
 #include "dialog_ids.h"
+#include "dialog_ids.h"
 #include "segment_symbols.h"
 #include "level_commands.h"
 
@@ -12,6 +13,9 @@
 #include "levels/scripts.h"
 
 #include "actors/common1.h"
+
+/* Fast64 begin persistent block [includes] */
+/* Fast64 end persistent block [includes] */
 
 /* Fast64 begin persistent block [includes] */
 /* Fast64 end persistent block [includes] */

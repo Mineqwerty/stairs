@@ -559,7 +559,19 @@ void bhv_shark_init(void);
 void bhv_shark_loop(void);
 void bhv_shark_spawner_loop(void);
 
+void bhv_breakable_ice_init(void);
 void bhv_breakable_ice_loop(void);
+
+void bhv_bossman_loop(void);
+
+void bhv_warp_stairs_loop(void);
+
+void bhv_rhino_init(void);
+
+void bhv_mario_stairs_controller_init(void);
+void bhv_mario_stairs_controller_loop(void);
+
+void bhv_elephant_loop(void);
 
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
 

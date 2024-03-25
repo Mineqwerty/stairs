@@ -5,7 +5,7 @@
  *********************/
 
 // The size of the master display list (gDisplayListHead). 6400 is vanilla.
-#define GFX_POOL_SIZE 10000
+#define GFX_POOL_SIZE 15000
 
 // Show a watermark on the title screen that reads "Made with HackerSM64", instead of the copyright message.
 #define INTRO_CREDIT
@@ -19,7 +19,7 @@
 // Skybox size modifier, changing this will add support for larger skybox images. NOTE: Vanilla skyboxes may break if you change this option. Be sure to rescale them accordingly.
 // Whenever you change this, make sure to run "make -C tools clean" to rebuild the skybox tool (alternatively go into skyconv.c and change the file in any way (like adding/deleting a space) to specifically rebuild that tool).
 // When increasing this, you should probably also increase the GFX pool size (the GFX_POOL_SIZE define above).
-#define SKYBOX_SIZE 1
+#define SKYBOX_SIZE 2
 
 // When this option is enabled, LODs will ONLY work on console.
 // When this option is disabled, LODs will work regardless of whether console or emulator is used.

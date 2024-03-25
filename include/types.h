@@ -415,6 +415,15 @@ struct MarioBodyState {
     // u8 filler[4];
 };
 
+struct FloorCheckpoint
+{
+    Vec3f pos;
+    s16 yaw;
+    s16 level;
+    u8 area;
+    struct Surface *floor;
+};
+
 struct MarioState {
     /*0x00*/ u16 playerID;
     /*0x02*/ u16 input;
@@ -487,7 +496,10 @@ struct MarioState {
 #ifdef PREVENT_DEATH_LOOP
              u8  isDead : 1;
 #endif
-           Vec3f lastSafePos;
+           f32 waterForce;
+    s16 prevWaterLevel;
+    Vec3f lastSafePos;
+    struct FloorCheckpoint floorCheckpoint;
            Vec3f prevPos;
              f32 lateralSpeed;
              f32 moveSpeed;
@@ -495,6 +507,7 @@ struct MarioState {
            Angle moveYaw;
            Angle ceilYaw;
            Angle wallYaw;
+           /*0xB2*/ u8 iceSpawnType;
     // -- HackerSM64 MarioState fields end --
 };
 

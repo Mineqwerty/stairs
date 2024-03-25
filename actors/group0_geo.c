@@ -18,3 +18,7 @@
 #include "mario/geo.inc.c"
 
 #include "cutscene_mario/geo.inc.c"
+#include "stairman/geo.inc.c"
+#include "warp_stairs/geo.inc.c"
+#include "rhino/geo.inc.c"
+#include "elephant/geo.inc.c"

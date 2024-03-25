@@ -1,0 +1,15 @@
+extern const GeoLayout stairman_geo[];
+extern Lights1 stairman_f3d_material_lights;
+extern u8 stairman_stairman_stairs_ci8[];
+extern u8 stairman_stairman_stairs_ci8_pal_rgba16[];
+extern u8 stairman_stairtexture_ia4[];
+extern Vtx stairman_Cube_mesh_layer_1_vtx_0[94];
+extern Gfx stairman_Cube_mesh_layer_1_tri_0[];
+extern Vtx stairman_Cube_mesh_layer_1_vtx_1[674];
+extern Gfx stairman_Cube_mesh_layer_1_tri_1[];
+extern Gfx mat_stairman_f3d_material_001[];
+extern Gfx mat_revert_stairman_f3d_material_001[];
+extern Gfx mat_stairman_f3d_material[];
+extern Gfx mat_revert_stairman_f3d_material[];
+extern Gfx stairman_Cube_mesh_layer_1[];
+extern Gfx stairman_material_revert_render_settings[];

@@ -103,6 +103,11 @@
 #define TEXT_KNOW _("drowsy and forgetful...")
 #define TEXT_SOMETHING _("Can you go investigate?")
 
+#define TEXT_GREETINGS _("GREETINGS. THIS IS WHERE YOU END.")
+#define TEXT_INFINITE2 _("THE STAIRS ARE FOREVER INFINITE")
+#define TEXT_DAYS _("YOU SHALL SPEND YOUR DAYS ON THIS CASE")
+#define TEXT_DOING _("WHAT ARE YOU DOING...?")
+
 #if defined(VERSION_JP) || defined(VERSION_SH)
 
 /**

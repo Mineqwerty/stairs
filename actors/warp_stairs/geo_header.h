@@ -1,0 +1,10 @@
+extern const GeoLayout warp_stairs_geo[];
+extern Lights1 warp_stairs_Carpet_lights;
+extern u8 warp_stairs_SUPER_MARIO_64_A6463A8D_0_2_all_ci4[];
+extern u8 warp_stairs_SUPER_MARIO_64_A6463A8D_0_2_all_ci4_pal_rgba16[];
+extern Vtx warp_stairs_Styairs_mesh_vtx_0[528];
+extern Gfx warp_stairs_Styairs_mesh_tri_0[];
+extern Gfx mat_warp_stairs_Carpet[];
+extern Gfx mat_revert_warp_stairs_Carpet[];
+extern Gfx warp_stairs_Styairs_mesh[];
+extern Gfx warp_stairs_material_revert_render_settings[];

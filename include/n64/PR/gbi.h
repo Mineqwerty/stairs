@@ -4006,7 +4006,10 @@ typedef union {
 	gsDPSetTileSize(G_TX_RENDERTILE, 0, 0,				\
 		((width)-1) << G_TEXTURE_IMAGE_FRAC,			\
 		((height)-1) << G_TEXTURE_IMAGE_FRAC)
-
+		
+#ifndef MIN_MAX
+#define MIN_MAX(a, min, max) (MAX(MIN(a, max), min))
+#endif
 /*
  *  4-bit load block.  Allows tmem address and render tile to be specified.
  *  Useful when loading multiple tiles.

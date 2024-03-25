@@ -338,4 +338,18 @@ extern const Gfx white_particle_small_unused_dl[];
 
 #include "mario/geo_header.h"
 
+#include "stairman/geo_header.h"
+
+#include "warp_stairs/geo_header.h"
+
+#include "warp_stairs/collision_header.h"
+
+#include "rhino/geo_header.h"
+
+
+#include "rhino/anim_header.h"
+#include "elephant/geo_header.h"
+
+#include "elephant/collision_header.h"
+
 #endif

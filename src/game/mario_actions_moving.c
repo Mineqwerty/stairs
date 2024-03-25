@@ -818,6 +818,12 @@ s32 act_walking(struct MarioState *m) {
     return FALSE;
 }
 
+s32 act_automatic_walking(struct MarioState *m) {
+    update_walking_speed(m);
+    perform_ground_step(m);
+    return FALSE;
+}
+
 s32 act_move_punching(struct MarioState *m) {
     if (should_begin_sliding(m)) {
         return set_mario_action(m, ACT_BEGIN_SLIDING, 0);
@@ -1961,6 +1967,7 @@ s32 mario_execute_moving_action(struct MarioState *m) {
     /* clang-format off */
     switch (m->action) {
         case ACT_WALKING:                  cancel = act_walking(m);                  break;
+        case ACT_AUTO_WALKING:                  cancel = act_automatic_walking(m);                  break;
         case ACT_HOLD_WALKING:             cancel = act_hold_walking(m);             break;
         case ACT_HOLD_HEAVY_WALKING:       cancel = act_hold_heavy_walking(m);       break;
         case ACT_TURNING_AROUND:           cancel = act_turning_around(m);           break;

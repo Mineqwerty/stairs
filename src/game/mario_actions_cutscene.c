@@ -2640,6 +2640,61 @@ static s32 check_for_instant_quicksand(struct MarioState *m) {
     return FALSE;
 }
 
+s32 act_floor_checkpoint_warp_out(struct MarioState *m) {
+    if (m->actionTimer == 0) play_transition(WARP_TRANSITION_FADE_INTO_COLOR, 20, 0, 0, 0);
+    if (++m->actionTimer <= 20) {
+        m->forwardVel = 0.0f;
+        m->flags |= MARIO_TELEPORTING;
+        m->fadeWarpOpacity = (u8)MIN_MAX(get_relative_position_between_ranges(m->actionTimer, 1.0f, 20, 255.0f, 0.0f), 0, 255);
+        m->vel[0] *= 0.8f; 
+        m->vel[1] *= 0.8f; 
+        m->vel[2] *= 0.8f;
+        vec3f_add(m->pos, m->vel);
+        vec3f_copy(m->marioObj->header.gfx.pos, m->pos);
+        // TODO: Fade out audio or something?
+        return FALSE;
+    }
+
+    return warp_to_checkpoint(m, m->actionArg);
+}
+
+// NOTE: Should be initiated from warp_to_checkpoint
+s32 act_floor_checkpoint_warp_in(struct MarioState *m) {
+    if (++m->actionTimer <= 20) {
+        m->flags |= MARIO_TELEPORTING;
+        m->fadeWarpOpacity = (u8)MIN_MAX(get_relative_position_between_ranges(m->actionTimer, 0, 20, 0.0f, 255.0f), 0, 255);
+
+        switch(get_checkpoint_action(m)) {
+            case 0:
+                set_mario_animation(m, MARIO_ANIM_WAKE_FROM_SLEEP);
+                break;
+            case 1:
+                set_mario_animation(m, MARIO_ANIM_WAKE_FROM_SLEEP);
+                break;
+            case 2:
+            default:
+                set_mario_animation(m, MARIO_ANIM_WAKE_FROM_SLEEP);
+                break;
+        }
+    } else {
+        m->flags &= ~MARIO_TELEPORTING;
+        m->fadeWarpOpacity = 255;
+        vec3f_copy(m->marioObj->header.gfx.pos, m->pos);
+        vec3s_copy(m->marioObj->header.gfx.angle, m->faceAngle);
+        switch(get_checkpoint_action(m)) {
+            case 0:
+                return set_mario_action(gMarioState, MARIO_ANIM_WAKE_FROM_SLEEP, 0);
+            case 1:
+                return set_mario_action(gMarioState, MARIO_ANIM_WAKE_FROM_SLEEP, 0);
+            case 2:
+            default:
+                return set_mario_action(gMarioState, MARIO_ANIM_WAKE_FROM_SLEEP, 0);
+        }
+    }
+
+    return FALSE;
+}
+
 s32 mario_execute_cutscene_action(struct MarioState *m) {
     s32 cancel;
 
@@ -2700,6 +2755,8 @@ s32 mario_execute_cutscene_action(struct MarioState *m) {
         case ACT_BUTT_STUCK_IN_GROUND:       cancel = act_butt_stuck_in_ground(m);       break;
         case ACT_FEET_STUCK_IN_GROUND:       cancel = act_feet_stuck_in_ground(m);       break;
         case ACT_PUTTING_ON_CAP:             cancel = act_putting_on_cap(m);             break;
+        case ACT_FLOOR_CHECKPOINT_WARP_OUT:  cancel = act_floor_checkpoint_warp_out(m);  break;
+        case ACT_FLOOR_CHECKPOINT_WARP_IN:   cancel = act_floor_checkpoint_warp_in(m);   break;
     }
     /* clang-format on */
 

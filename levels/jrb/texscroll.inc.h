@@ -1,2 +1,2 @@
-extern void scroll_jrb_dl_Plane_mesh_layer_4_vtx_0();
+extern void scroll_sts_mat_jrb_dl_cozieswater_001_layer5();
 extern void scroll_jrb();

@@ -52,5 +52,6 @@ s32 set_water_plunge_action(struct MarioState *m);
 s32 execute_mario_action(UNUSED struct Object *obj);
 void init_mario(void);
 void init_mario_from_save_file(void);
+void check_mario_floor_checkpoint(struct MarioState *m);
 
 #endif // MARIO_H

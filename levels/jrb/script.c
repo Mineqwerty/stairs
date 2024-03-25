@@ -4,7 +4,6 @@
 #include "model_ids.h"
 #include "seq_ids.h"
 #include "dialog_ids.h"
-#include "dialog_ids.h"
 #include "segment_symbols.h"
 #include "level_commands.h"
 
@@ -13,9 +12,6 @@
 #include "levels/scripts.h"
 
 #include "actors/common1.h"
-
-/* Fast64 begin persistent block [includes] */
-/* Fast64 end persistent block [includes] */
 
 /* Fast64 begin persistent block [includes] */
 /* Fast64 end persistent block [includes] */
@@ -38,6 +34,8 @@ const LevelScript level_jrb_entry[] = {
 	LOAD_RAW(0x0D, _group13_geoSegmentRomStart, _group13_geoSegmentRomEnd), 
 	LOAD_YAY0(0x08, _common0_yay0SegmentRomStart, _common0_yay0SegmentRomEnd), 
 	LOAD_RAW(0x0F, _common0_geoSegmentRomStart, _common0_geoSegmentRomEnd), 
+	LOAD_MIO0(0x7, _jrb_segment_7SegmentRomStart, _jrb_segment_7SegmentRomEnd), 
+	LOAD_MIO0(0xa, _bits_skybox_mio0SegmentRomStart, _bits_skybox_mio0SegmentRomEnd), 
 	ALLOC_LEVEL_POOL(),
 	MARIO(MODEL_MARIO, 0x00000001, bhvMario), 
 	JUMP_LINK(script_func_global_1), 
@@ -50,21 +48,27 @@ const LevelScript level_jrb_entry[] = {
 
 	AREA(1, jrb_area_1),
 		WARP_NODE(0x0A, LEVEL_BOB, 0x01, 0x0A, WARP_NO_CHECKPOINT),
-		WARP_NODE(0xF0, LEVEL_BOB, 0x01, 0x0A, WARP_NO_CHECKPOINT),
-		WARP_NODE(0xF1, LEVEL_BOB, 0x01, 0x0A, WARP_NO_CHECKPOINT),
-		OBJECT(MODEL_NONE, -4852, -990, 5377, 0, -74, 0, 0x00000000, bhvSharkSpawner),
-		OBJECT(MODEL_NONE, -17296, 244, -399, 0, 0, 0, 0x000A0000, bhvSpinAirborneWarp),
-		MARIO_POS(0x01, 0, -17296, 244, -399),
+		WARP_NODE(0xF0, LEVEL_JRB, 0x01, 0x0A, WARP_NO_CHECKPOINT),
+		WARP_NODE(0xF1, LEVEL_JRB, 0x01, 0x0A, WARP_NO_CHECKPOINT),
+		OBJECT(MODEL_WARP_STAIRS, 549, 2408, 2726, 0, 0, 0, 0x00000000, bhvWarpStairs),
+		OBJECT(MODEL_NONE, -17801, -195, 561, 0, 0, 0, 0x00000000, bhvMarioStairsController),
+		OBJECT(MODEL_NONE, -4852, -1186, 5377, 0, -74, 0, 0x00000000, bhvSharkSpawner),
+		OBJECT(MODEL_NONE, -4190, -1186, 7035, 0, -74, 0, 0x00000000, bhvSharkSpawner),
+		OBJECT(MODEL_NONE, -4489, -1186, 6171, 0, -74, 0, 0x00000000, bhvSharkSpawner),
+		OBJECT(MODEL_NONE, -5235, -1047, 4423, 0, -74, 0, 0x00000000, bhvSharkSpawner),
+		OBJECT(MODEL_HEART, 398, 1740, 10360, 0, -74, 0, 0x00000000, bhvRecoveryHeart),
+		OBJECT(MODEL_NONE, -18925, -855, 308, 0, 0, 0, 0x000A0000, bhvSpinAirborneWarp),
+		MARIO_POS(0x01, 0, -18925, -855, 308),
 		TERRAIN(jrb_area_1_collision),
 		MACRO_OBJECTS(jrb_area_1_macro_objs),
-		SET_BACKGROUND_MUSIC(0x00, SEQ_EVENT_CUTSCENE_COLLECT_STAR),
+		SET_BACKGROUND_MUSIC(0x00, SEQ_STREAMED_SEA),
 		TERRAIN_TYPE(TERRAIN_GRASS),
 		/* Fast64 begin persistent block [area commands] */
 		/* Fast64 end persistent block [area commands] */
 	END_AREA(),
 
 	FREE_LEVEL_POOL(),
-	MARIO_POS(0x01, 0, -17296, 244, -399),
+	MARIO_POS(0x01, 0, -18925, -855, 308),
 	CALL(0, lvl_init_or_update),
 	CALL_LOOP(1, lvl_init_or_update),
 	CLEAR_LEVEL(),

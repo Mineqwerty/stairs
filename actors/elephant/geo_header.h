@@ -1,0 +1,17 @@
+extern const GeoLayout elephant_geo[];
+extern Lights1 elephant_f3d_material_lights;
+extern Lights1 elephant_gold_lights;
+extern u8 elephant_qua_o_ty1_rock03_ci4[];
+extern u8 elephant_qua_o_ty1_rock03_ci4_pal_rgba16[];
+extern u8 elephant_MarioParty3_492049DF_2_1_ci_ci8[];
+extern u8 elephant_MarioParty3_492049DF_2_1_ci_ci8_pal_rgba16[];
+extern Vtx elephant_Cube_003_mesh_layer_1_vtx_0[211];
+extern Gfx elephant_Cube_003_mesh_layer_1_tri_0[];
+extern Vtx elephant_Cube_003_mesh_layer_1_vtx_1[364];
+extern Gfx elephant_Cube_003_mesh_layer_1_tri_1[];
+extern Gfx mat_elephant_f3d_material[];
+extern Gfx mat_revert_elephant_f3d_material[];
+extern Gfx mat_elephant_gold[];
+extern Gfx mat_revert_elephant_gold[];
+extern Gfx elephant_Cube_003_mesh_layer_1[];
+extern Gfx elephant_material_revert_render_settings[];

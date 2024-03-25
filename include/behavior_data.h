@@ -549,4 +549,14 @@ extern const BehaviorScript bhvShark[];
 
 extern const BehaviorScript bhvBreakableIce[];
 
+extern const BehaviorScript bhvBossman[];
+
+extern const BehaviorScript bhvWarpStairs[];
+
+extern const BehaviorScript bhvRhino[];
+
+extern const BehaviorScript bhvMarioStairsController[];
+
+extern const BehaviorScript bhvElephant[];
+
 #endif // BEHAVIOR_DATA_H

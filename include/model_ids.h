@@ -557,6 +557,10 @@
 
 #define MODEL_SHARK                0x101
 #define MODEL_BREAKABLE_ICE                0x102
+#define MODEL_BOSSMAN           0x103
+#define MODEL_WARP_STAIRS           0x104
+#define MODEL_RHINO           0x105
+#define MODEL_ELEPHANT           0x106
 
 // Menu Models (overwrites Level Geometry IDs)
 #define MODEL_MAIN_MENU_MARIO_SAVE_BUTTON         MODEL_LEVEL_GEOMETRY_03   // main_menu_geo_0001D0

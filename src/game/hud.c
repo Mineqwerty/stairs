@@ -562,6 +562,21 @@ void render_hud(void) {
             render_hud_cannon_reticle();
         }
 
+        extern u8 gShadeScreenAmount;
+
+        //if (gCurrLevelNum != LEVEL_JRB) {
+        //    gShadeScreenAmount = 0;
+        //}
+
+        if (gShadeScreenAmount != 0) {
+            if (gShadeScreenAmount <= 255) {
+            shade_screen_amount(gShadeScreenAmount);
+            }
+            else {
+                shade_screen_amount(255);
+            }
+        }
+
 #ifndef DISABLE_LIVES
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_LIVES) {
             render_hud_mario_lives();
@@ -569,11 +584,11 @@ void render_hud(void) {
 #endif
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_COIN_COUNT) {
-            render_hud_coins();
+            //render_hud_coins();
         }
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_STAR_COUNT) {
-            render_hud_stars();
+            //render_hud_stars();
         }
 
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_KEYS) {
@@ -589,7 +604,7 @@ void render_hud(void) {
 #ifdef PUPPYCAM
             if (!gPuppyCam.enabled) {
 #endif
-            render_hud_camera_status();
+            //render_hud_camera_status();
 #ifdef PUPPYCAM
             }
 #endif

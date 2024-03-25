@@ -499,6 +499,8 @@ void vec3i_to_vec3f(Vec3f dest, const Vec3i src);
 void vec3f_to_vec3s(Vec3s dest, const Vec3f src);
 void vec3f_to_vec3i(Vec3i dest, const Vec3f src);
 
+f32 get_relative_position_between_ranges(f32 x, f32 fromA, f32 toA, f32 fromB, f32 toB);
+
 void vec3f_copy_y_off(Vec3f dest, Vec3f src, f32 yOff);
 
 void surface_normal_to_vec3f(Vec3f dest, struct Surface *surf);

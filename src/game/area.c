@@ -57,6 +57,7 @@ Color gWarpTransGreen = 0;
 Color gWarpTransBlue = 0;
 s16 gCurrSaveFileNum = 1;
 s16 gCurrLevelNum = LEVEL_MIN;
+u8 gShadeScreenAmount = 0;
 
 /*
  * The following two tables are used in get_mario_spawn_type() to determine spawn type
@@ -389,6 +390,11 @@ u8 text_infinite[] = { TEXT_INFINITE };
 u8 text_know[] = { TEXT_KNOW };
 u8 text_something[] = { TEXT_SOMETHING };
 
+u8 text_infinite2[] = { TEXT_INFINITE2 };
+u8 text_greetings[] = { TEXT_GREETINGS };
+u8 text_days[] = { TEXT_DAYS };
+u8 text_doing[] = { TEXT_DOING };
+
 u8 gLetterHeight = 240;
 s16 gTextOpacity = 0;
 
@@ -414,10 +420,13 @@ void render_game(void) {
 
         if (gMarioState->customCutscene >= 2) {
 
+
         extern const Texture custom_peach_letter[];
+            if (gMarioState->customCutscene <= 9) {
         gSPDisplayList(gDisplayListHead++, dl_hud_img_begin);
         render_multi_image(&custom_peach_letter, 80, gLetterHeight, 160, 70, 1, 1, G_CYC_COPY);
         gSPDisplayList(gDisplayListHead++, dl_hud_img_end);
+            }
 
         //even opacity means that it's increasing
         if (gTextOpacity > 0 && gTextOpacity < 255 && gTextOpacity % 2 == 0) {
@@ -438,7 +447,13 @@ void render_game(void) {
         create_dl_ortho_matrix();
 
         gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
+
+        if (gMarioState->customCutscene <= 9) {
         gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, gTextOpacity);
+        }
+        else {
+          gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, gTextOpacity);  
+        }
 
         switch (gMarioState->customCutscene) {
             case 2: print_generic_string(100, 35, text_dearmario);
@@ -458,6 +473,19 @@ void render_game(void) {
             print_generic_string(95, 25, text_know);
             break;
             case 9: print_generic_string(85, 35, text_something);
+                break;
+
+                case 10: print_generic_string(85, 35, text_greetings);
+                break;
+                case 11: print_generic_string(85, 35, text_infinite2);
+                break;
+                case 12: print_generic_string(85, 35, text_days);
+                break;
+                case 13: print_generic_string(85, 35, text_doing);
+                break;
+
+                case 14: print_small_text(85, 85, "SPAM A!", PRINT_TEXT_ALIGN_LEFT, PRINT_ALL, FONT_OUTLINE);
+
                 break;
         }
 
